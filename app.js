@@ -1,4 +1,4 @@
-// document.write('<p> hello world </p>')
+var previousWinner;
 
 var piece = 'X';
 
@@ -10,9 +10,12 @@ function togglePiece() {
   }
 }
 
+var playerX;
+var playerO;
+
 function playerNames() {
-  var playerX = prompt("Player X: ", "player X name here");
-  var playerO = prompt("Player O: ", "player O name here");
+  playerX = prompt("Player X: ", "player X name here");
+  playerO = prompt("Player O: ", "player O name here");
   document.write("<h2 class='name'>Player X: " + playerX  + "</h2>");
   document.write("<h2 class='name'>Player O: " + playerO  + "</h2>");
 }
@@ -43,16 +46,20 @@ function reset() {
   for(var i = 0; i < element.length; i++) {
     element[i].innerHTML = '';
   }
-  piece = 'X';
+  piece = previousWinner || 'X';
 }
 
 function whoWins(win) {
   console.log(win)
   if (win !== 'X' && win !== 'O') {
     alert ("It's a tie!!")
-  } else {
-    alert (win + " is the winner!!")
-  }
+  } else if (win === "X") {
+    previousWinner = win;
+      alert (playerX + " is the winner!!")
+  } else if (win === "O") {
+    previousWinner = win;
+    alert (playerO + " is the winner!!")
+}
 }
 
 function determineWinner() {
