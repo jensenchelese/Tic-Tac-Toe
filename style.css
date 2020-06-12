@@ -1,0 +1,13 @@
+p {
+  margin: 0px;
+  border: 1px lightblue solid;
+  padding: 10px;
+  height: 100px;
+  width: 30%;
+  font-size: 50px;
+  float: left;
+  text-align: center;
+}
+body {
+  background-color: rgb(228, 250, 250);
+}
