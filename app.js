@@ -10,8 +10,17 @@ function togglePiece() {
   }
 }
 
+function playerNames() {
+  var playerX = prompt("Player X: ", "player X name here");
+  var playerO = prompt("Player O: ", "player O name here");
+  document.write("<h2 class='name'>Player X: " + playerX  + "</h2>");
+  document.write("<h2 class='name'>Player O: " + playerO  + "</h2>");
+}
+
+playerNames()
+
 function display(id) {
-  if(document.getElementById(id).innerHTML !== 'Click me') {
+  if(document.getElementById(id).innerHTML !== '') {
     alert ('Please select a different space!')
   } else {
     document.getElementById(id).innerHTML = piece;
@@ -20,7 +29,7 @@ function display(id) {
   }
   var element = document.getElementsByClassName("game");
   for(var i = 0; i < element.length; i++) {
-    if (element[i].innerHTML === "Click me") {
+    if (element[i].innerHTML === "") {
       return;
     } else {
       continue;
@@ -32,7 +41,7 @@ function display(id) {
 function reset() {
   var element = document.getElementsByClassName("game");
   for(var i = 0; i < element.length; i++) {
-    element[i].innerHTML = 'Click me';
+    element[i].innerHTML = '';
   }
   piece = 'X';
 }
@@ -81,4 +90,5 @@ function determineWinner() {
     whoWins(Object.keys(winner)[0]);
   }
 }
+
 
