@@ -18,8 +18,7 @@ var playerO;
 function playerNames() {
   playerX = prompt("Player X: ", "player X name here");
   playerO = prompt("Player O: ", "player O name here");
-  document.write("<h2 class='name'>Player X: " + playerX  + "</h2>");
-  document.write("<h2 class='name'>Player O: " + playerO  + "</h2>");
+  displayScore();
 }
 
 playerNames()
@@ -79,21 +78,23 @@ function reset() {
 }
 
 function whoWins(win) {
-  console.log(win)
   if (win !== 'X' && win !== 'O') {
     alert ("It's a tie!!")
   } else if (win === "X") {
-    score.X ++
+    score.X += 1;
+    displayScore()
     previousWinner = win;
       alert (playerX + " is the winner!!")
   } else if (win === "O") {
-    score.O ++
+    score.O += 1;
+    displayScore()
     previousWinner = win;
     alert (playerO + " is the winner!!")
 }
 }
 
 function displayScore() {
-  document.write("<h2>X Score: " + "</h2>")
+  document.getElementById('X').innerHTML = playerX + "     ____  Score: " + score.X;
+  document.getElementById('O').innerHTML = playerO + "    ____   Score: " + score.O;
 }
 
