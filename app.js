@@ -1,9 +1,17 @@
+//STORED VARIABLES
 var previousWinner;
 
 var piece = 'X';
 
 var score = {X: 0, O: 0};
 
+var playerX;
+var playerO;
+//============================================================================================================================================================================================================================================================================================================================
+//FUNCTIONS
+
+
+//function to switch from X to O
 function togglePiece() {
   if(piece === 'X') {
     piece = 'O';
@@ -12,17 +20,14 @@ function togglePiece() {
   }
 }
 
-var playerX;
-var playerO;
-
+//function to allow user to enter names
 function playerNames() {
   playerX = prompt("Player X: ", "player X name here");
   playerO = prompt("Player O: ", "player O name here");
   displayScore();
 }
 
-playerNames()
-
+//function to display X's and O's and to determine if there is a win
 function display(id) {
   if(document.getElementById(id).innerHTML !== '') {
     alert ('Please select a different space!')
@@ -69,6 +74,7 @@ function display(id) {
   }
 }
 
+//function that handles the reset button (clears game board)
 function reset() {
   var element = document.getElementsByClassName("game");
   for(var i = 0; i < element.length; i++) {
@@ -77,6 +83,7 @@ function reset() {
   piece = previousWinner || 'X';
 }
 
+//function that displays winner and keeps track of score and previous winner
 function whoWins(win) {
   if (win !== 'X' && win !== 'O') {
     alert ("It's a tie!!")
@@ -93,8 +100,13 @@ function whoWins(win) {
 }
 }
 
+//function that displays name and score
 function displayScore() {
   document.getElementById('X').innerHTML = playerX + "     ____  Score: " + score.X;
   document.getElementById('O').innerHTML = playerO + "    ____   Score: " + score.O;
 }
 
+//============================================================================================================================================================================================================================================================================================================================
+//INVOKED FUNCTIONS
+
+playerNames()
